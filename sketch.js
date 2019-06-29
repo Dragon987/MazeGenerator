@@ -90,11 +90,8 @@ function draw()
                 choice.walls[0] = false;
             }
 
-            else if (choice.y > current.y)
+            else if (choice.y < current.y)
             {
-                console.log("Going up!");
-                console.log("Current: " + current.walls);
-                console.log("Choice: " + choice.walls);
                 current.walls[0] = false;
                 choice.walls[2] = false;
             }
