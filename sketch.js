@@ -5,7 +5,7 @@ let stack = [];
 
 function setup()
 {
-    createCanvas(900, 900);
+    createCanvas(870, 870);
     scl = 30;
     rows = floor(width / scl), cols = floor(height / scl);
 
@@ -43,6 +43,7 @@ function setup()
 function draw()
 {
     background(0);
+    frameRate(1);
     for (let col of grid)
         for (let c of col)
         {
@@ -69,28 +70,31 @@ function draw()
 
         stack.push(current);
 
-        if (choice.i > current.i)
+        if (choice.x > current.x)
         {
             current.walls[1] = false;
             choice.walls[3] = false;
         }
 
-        else if (choice.i < current.i)
+        else if (choice.x < current.x)
         {
             current.walls[3] = false;
             choice.walls[1] = false;
         }
 
-        else
+        else if (choice.x === current.x)
         {
-            if (choice.j > current.j)
+            if (choice.y > current.y)
             {
                 current.walls[2] = false;
                 choice.walls[0] = false;
             }
 
-            else if (choice.j > current.j)
+            else if (choice.y > current.y)
             {
+                console.log("Going up!");
+                console.log("Current: " + current.walls);
+                console.log("Choice: " + choice.walls);
                 current.walls[0] = false;
                 choice.walls[2] = false;
             }
