@@ -43,7 +43,6 @@ function setup()
 function draw()
 {
     background(0);
-    frameRate(1);
     for (let col of grid)
         for (let c of col)
         {
